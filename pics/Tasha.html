@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Estates | Find Your Dream Home</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: #f5f7fa;
+        color: #333;
+    }
+
+    header {
+        background: #0f172a;
+        color: white;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav a {
+        color: white;
+        margin-left: 20px;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    nav a:hover {
+        color: #38bdf8;
+    }
+
+    .hero {
+        height: 80vh;
+        background: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994') center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .hero h2 {
+        font-size: 48px;
+        background: rgba(0,0,0,0.6);
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .section {
+        padding: 60px 50px;
+    }
+
+    .section h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 32px;
+    }
+
+    .properties {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+    }
+
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .price {
+        color: #0ea5e9;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .filter {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .filter button {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background: #0ea5e9;
+        color: white;
+    }
+
+    .filter button:hover {
+        background: #0284c7;
+    }
+
+    .about, .contact {
+        max-width: 900px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .contact form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .contact input, .contact textarea {
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    .contact button {
+        padding: 12px;
+        background: #0ea5e9;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    footer {
+        background: #0f172a;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Prime Estates</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#properties">Properties</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Find Your Dream Home Today</h2>
+</section>
+
+<section class="section" id="properties">
+    <h2>Featured Properties</h2>
+
+    <div class="filter">
+        <button onclick="filterSelection('all')">All</button>
+        <button onclick="filterSelection('house')">Houses</button>
+        <button onclick="filterSelection('apartment')">Apartments</button>
+    </div>
+
+    <div class="properties">
+        <div class="card house">
+            <img src="https://images.unsplash.com/photo-1572120360610-d971b9a0e8e6">
+            <div class="card-content">
+                <div class="price">$450,000</div>
+                <p>Luxury 4 Bedroom House</p>
+            </div>
+        </div>
+
+        <div class="card apartment">
+            <img src="pic">
+            <div class="card-content">
+                <div class="price">$280,000</div>
+                <p>Modern City Apartment</p>
+            </div>
+        </div>
+
+        <div class="card house">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+            <div class="card-content">
+                <div class="price">$620,000</div>
+                <p>Elegant Family Home</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section about" id="about">
+    <h2>About Us</h2>
+    <p>Prime Estates is dedicated to helping you find the perfect property. Whether buying or selling, we provide expert guidance and trusted service.</p>
+</section>
+
+<section class="section contact" id="contact">
+    <h2>Contact Us</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    © 2026 Prime Estates | All Rights Reserved
+</footer>
+
+<script>
+function filterSelection(category) {
+    let cards = document.getElementsByClassName("card");
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].style.display = 
+            (category === "all" || cards[i].classList.contains(category)) 
+            ? "block" 
+            : "none";
+    }
+}
+</script>
+
+</body>
+</html>
